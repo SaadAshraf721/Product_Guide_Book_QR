@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Create an Account{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1 style="margin-left:50%;color:#eb349e;font-size: 30px">Registration form</h1>
+<a href="/login/">Sign in</a>
+<div class="row">
+	<div class="col"></div>
+	<div class="col">
+		<h1 style="color:green">{{res}}</h1>
+    <form method="POST" class="form-group">
+	{% csrf_token %}
+	{{ form|crispy }}
+	<button type="submit" class="btn btn-success">Register</button>
+    </form>
+		</div>
+	<div class="col"></div>
+	</div>
+{% endblock %}

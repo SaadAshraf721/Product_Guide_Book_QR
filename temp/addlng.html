@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="content">
+    <h1>{{Name}}</h1>
+
+<form action="/langadd/" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="form-group">
+     <label >Language</label>
+    <select name="language" class="form-control">
+      {% for obj in lng %}
+        <option value="{{obj.id}}">{{obj.name}}</option>
+      {% endfor %}
+
+    </select>
+  </div>
+  <div class="form-group">
+    <label >title</label>
+    <input type="text" class="form-control" name="title" placeholder="title">
+  </div>
+    <div class="form-group">
+    <label >subtitle</label>
+    <input type="text" class="form-control" name="subtitle" placeholder="subtitle">
+  </div>
+  <div class="form-group">
+    <label >text</label>
+    <input type="text" class="form-control" name="txt" placeholder="txt">
+  </div>
+  <div class="form-group">
+    <label >image</label>
+    <input type="file" class="form-control" name="image" placeholder="image">
+  </div>
+  <div class="form-group">
+    <label >video Url</label>
+    <input type="text" class="form-control" name="video" placeholder="video url">
+  </div>
+  <input type="number" name="product" value="{{prd}}" hidden>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+{% endblock content %}
